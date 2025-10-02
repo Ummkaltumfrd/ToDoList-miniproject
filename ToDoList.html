@@ -4,64 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ToDoList</title>
-  <style>
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 25%;
-  font-family: sans-serif;
-}
-
-input, button {
-  padding: 10px;
-  border: 1px solid rgb(221, 210, 164);
-}
-
-button {
-  background-color: rgb(233, 226, 188);
-  cursor: pointer;
-}
-button:hover{
-  background-color: rgba(233, 226, 188, 0.776);
-  border: 1px solid rgba(233, 226, 188, 0.783);
-}
-button:active{
-  background-color: rgba(233, 226, 188, 0.571);
-  border: 1px solid rgba(233, 226, 188, 0.509);
-}
-
-.container {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid rgb(221, 210, 164);
-  border-radius: 15px;
-  margin: 10px 0;
-  padding: 10px 20px;
-  background-color: #fff;
-}
-
-.text-content {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.delete-btn {
-  border-radius: 10px;
-  padding: 5px 10px;
-  background-color: rgb(233, 226, 188);
-  border: 1px solid rgb(233, 226, 188);
-  font-size: 14px;
-}
-
-
-  </style>
+  <link rel="stylesheet" href="ToDoList.css">
 </head>
 <body>
   <h1>To Do List</h1>
@@ -70,63 +13,6 @@ button:active{
    <button onclick="AddToDo()">Add</button>
    <div class="js-todo"></div> 
 
-  <script>
-     const toDo=[{
-      name:'cooking',
-      date:'01/02/2004'
-     },{
-      name:'clean dishes',
-      date:'01/02/2004'
-     }];
-     const todo= document.querySelector('.js-todo');
-    
-   
-  
-showTheList();
-
-  function handleInputKeydown(event){
-    if(event.key==='Enter'){
-      AddToDo();
-    }
-  }
-
-
-  function AddToDo(){
-    const name =document.querySelector('.js-todo-input').value;
-    const date =document.querySelector('.js-todoTime-input').value;
-
-    if(!name){
-      alert('You have to enter something');
-      return;
-    }
-      toDo.push({name,date});
-      showTheList();
-      document.querySelector('.js-todo-input').value='';
-      document.querySelector('.js-todoTime-input').value='';
-   }
-
-   function   showTheList(){
-    let TODOinnerHTML='';
-    toDo.forEach((item,index)=>{
-         TODOinnerHTML+=` <div class="container">
-    <div class="text-content">
-      <div>${item.name}</div>
-      <div>${item.date}</div>
-    </div>
-    <button class="delete-btn" onclick="removeTodo(${index})">Delete</button>
-  </div>
-               
-         `;
-    })
-      todo.innerHTML=TODOinnerHTML;
-   }
-
-
-   function removeTodo(index){
-
-        toDo.splice(index,1);
-        showTheList();
-   }
-  </script>
+  <script src="ToDoListt.js"></script>
 </body>
 </html>
